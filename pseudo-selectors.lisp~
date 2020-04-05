@@ -147,5 +147,5 @@
   (let* ((word (remove-if (lambda (x)
                             (or x (string= "" x)))
                           (ppcre:split "[\"']" word)))
-         (word (car word)))
+         (word (progn (capi:display-message "~S" word) (car word))))
     (search word (text node))))
